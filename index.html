@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+<style>
+  body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+}
+
+/* Navigation bar */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: rgb(14 14 14) 0px 4px 8px -2px;
+  background: linear-gradient(136deg, rgb(0 102 221), rgb(76 0 151));
+}
+
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  padding: 5px 0; /* important for visible movement */
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-link:hover {
+  /* color: #00c3ff; */
+  transform: translateY(-6px); /* movement added */
+}
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    linear-gradient(83deg, rgb(0 102 221 / 80%), rgb(57 11 141 / 60%)),
+    url(images/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 28px;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.1s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: white;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  transition: 0.3s;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.btn:hover {
+  background: #333;
+  color: white;
+}
+/* about section */
+/* ABOUT SECTION */
+
+#about {
+  padding: 80px 20px;
+  background: #f5f5f5;
+  max-width: 1024px;
+  margin: auto;
+}
+
+#about h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #0362da;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.profile-pic {
+  font-size: 80px;
+  background: white;
+  padding: 40px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  /* max-width: 500px; */
+  font-size: 18px;
+  line-height: 1.6;
+  flex: 2;
+}
+/* skill section */
+/* SKILLS SECTION */
+
+#skills {
+  padding: 80px 20px;
+  background: white;
+  text-align: center;
+  max-width: 1024px;
+  margin: auto;
+}
+
+#skills h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #0362da;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.skill-card {
+  background: #f5f5f5;
+  padding: 25px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+   transition: 0.5s;
+}
+.skill-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 18px rgb(65 65 65 / 49%);
+    transition: 0.5s;
+}
+.skill-card h3 {
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 26px;
+}
+
+/* SKILL BAR */
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(136deg, rgb(0 102 221), rgb(76 0 151));
+  transition: width 1s ease;
+}
+/* My project section */
+/* PROJECTS SECTION */
+
+#projects {
+  padding: 50px 20px;
+  background: #f9f9f9;
+  text-align: center;
+  max-width: 1024px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+#projects h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #0362da;
+}
+
+/* GRID LAYOUT */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1024px;
+  margin: auto;
+}
+
+/* PROJECT CARD */
+
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+    box-shadow: 0 2px 18px rgb(65 65 65 / 49%);
+    transition: 0.5s;
+}
+
+.project-image {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.project-info h3 {
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  font-size: 16px;
+  color: #555;
+  line-height: 26px;
+}
+
+/* Contact us */
+/* CONTACT SECTION */
+
+#contact {
+  padding: 80px 20px;
+  background: #f5f5f5;
+  text-align: center;
+  max-width: 1024px;
+  margin: auto;
+}
+
+#contact h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #0362da;
+}
+
+/* FORM */
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn {
+  background: linear-gradient(136deg, rgb(0 102 221), rgb(76 0 151));
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 1s;
+    border: 1px solid blue;
+}
+
+.submit-btn:hover {
+  background: #fff;
+  border: 1px solid blue;
+  color: #0362da;
+  transition: 1s;
+}
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  background: #00c3ff;
+  z-index: 1000;
+}
+/* FOOTER */
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* TABLET + MOBILE */
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  .nav-menu li {
+    margin: 15px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* HERO SECTION */
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  /* about section  */
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-pic {
+    font-size: 60px;
+    padding: 30px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+  /* skill section */
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-card {
+    width: 90%;
+  }
+  /* Contact us */
+}
+
+@media (max-width: 900px) {
+  /* My project section */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  /* My project section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">MyPortfolio</div>
+
+    <ul class="nav-menu">
+
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+
+    </ul>
+
+    <div class="menu-toggle">☰</div>
+  </nav>
+
+  <!-- hero section -->
+  <section id="home" class="hero">
+
+    <div class="hero-content">
+
+      <h1>Hi, I'm Swati Deshmukh</h1>
+
+      <p>
+        A passionate Frontend Developer focused on building responsive
+        and user-friendly web applications using HTML, CSS, JavaScript
+        and React.
+      </p>
+
+      <a href="#projects" class="btn">View My Work</a>
+
+    </div>
+
+  </section>
+
+  <br>
+  <!-- About section -->
+  <section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="about-content">
+
+      <div class="about-image">
+        <div class="profile-pic">👨‍💻</div>
+      </div>
+
+      <div class="about-text">
+
+        <p>
+          Hello! I'm Swati, a Computer Engineering student with a strong
+          interest in web development and modern technologies.
+        </p>
+
+        <p>
+          I enjoy building responsive websites using HTML, CSS, JavaScript
+          and currently learning React to create dynamic web applications.
+        </p>
+
+        <p>
+          My goal is to become a skilled frontend developer and work on
+          real-world projects that solve meaningful problems.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Skill section -->
+  <section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill-card" data-skill="90">
+        <h3>HTML5</h3>
+        <p>I use HTML5 to create well-structured and semantic web pages.</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress"></div>
+        </div>
+      </div>
+
+      <div class="skill-card" data-skill="85">
+        <h3>CSS3</h3>
+        <p>I design responsive layouts and modern UI using CSS3 and Flexbox.</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress"></div>
+        </div>
+      </div>
+
+      <div class="skill-card" data-skill="75">
+        <h3>JavaScript</h3>
+        <p>I build interactive web features using modern JavaScript.</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- My projects section -->
+  <section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+
+        <div class="project-image">🌐</div>
+
+        <div class="project-info">
+          <h3>Portfolio Website</h3>
+          <p>A personal portfolio website built using HTML, CSS and JavaScript to showcase my work.</p>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-image">🎨</div>
+
+        <div class="project-info">
+          <h3>Foodies – Online Food Delivery Website</h3>
+          <p>A responsive landing page design created using HTML, CSS and JavaScript.</p>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <div class="project-image">📱</div>
+
+        <div class="project-info">
+          <h3>Simple Todo App</h3>
+          <p>A simple task management application built with JavaScript.
+            Features : Add tasks, Mark task as completed, Delete tasks and Clean UI</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Contact us -->
+  <section id="contact">
+
+    <h2>Get In Touch</h2>
+
+    <form class="contact-form" id="contactForm">
+
+      <div class="form-group">
+        <!-- <label for="name">Name</label> -->
+        <input type="text" id="name" required placeholder="Enter Name here">
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="email">Email</label> -->
+        <input type="email" id="email" required placeholder="Enter Email-id here">
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="message">Message</label> -->
+        <textarea id="message" rows="5" required placeholder="Write message here"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+
+    </form>
+
+  </section>
+  <br>
+  <!-- Footer -->
+  <div class="scroll-indicator" id="scrollIndicator"></div>
+  <footer>
+    <p>© 2026 Swati. All Rights Reserved.</p>
+  </footer>
+  <script>
+    // for smooth scroll
+    document.querySelectorAll(".nav-link").forEach(link => {
+
+      link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        targetSection.scrollIntoView({
+          behavior: "smooth"
+        });
+
+      });
+
+    });
+
+    // for skill bar
+    const skills = document.querySelectorAll(".skill-card");
+
+    skills.forEach(card => {
+
+      const progress = card.querySelector(".skill-progress");
+      const skillValue = card.getAttribute("data-skill");
+
+      progress.style.width = skillValue + "%";
+
+    });
+    // for form submit
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (e) {
+
+      e.preventDefault();
+
+      alert("Thank you! Your message has been sent.");
+
+      form.reset();
+
+    });
+    // for scroll top
+    window.addEventListener("scroll", function () {
+
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      document.getElementById("scrollIndicator").style.width = scrollPercent + "%";
+
+    });
+
+  </script>
+</body>
+
+</html>
